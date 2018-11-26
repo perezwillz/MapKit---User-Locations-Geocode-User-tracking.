@@ -41,6 +41,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wlt-W9-P1U">
+                                <rect key="frame" x="305" y="537" width="60" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="gec-Ol-Cl0"/>
+                                    <constraint firstAttribute="width" constant="60" id="qky-Cs-m1N"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="19"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="GO"/>
+                                <connections>
+                                    <action selector="goButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fB5-TJ-uTL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -48,17 +62,20 @@
                             <constraint firstItem="8mS-ic-HjW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Cad-bv-x5J"/>
                             <constraint firstItem="Mf8-iZ-kWM" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="IRx-lS-Jcn"/>
                             <constraint firstItem="clP-v8-dhW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-20" id="JVz-F0-mMe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Wlt-W9-P1U" secondAttribute="trailing" constant="10" id="KDS-bV-upk"/>
                             <constraint firstItem="8mS-ic-HjW" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="M9k-Lb-dxV"/>
                             <constraint firstItem="clP-v8-dhW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PsJ-oh-vEj"/>
                             <constraint firstItem="8mS-ic-HjW" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="SSd-FY-4qt"/>
                             <constraint firstItem="8mS-ic-HjW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dUa-lu-r7m"/>
                             <constraint firstItem="Mf8-iZ-kWM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gh4-VL-imc"/>
                             <constraint firstItem="8mS-ic-HjW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="rfr-6U-DNv"/>
+                            <constraint firstItem="Mf8-iZ-kWM" firstAttribute="top" secondItem="Wlt-W9-P1U" secondAttribute="bottom" constant="10" id="wTX-34-bPu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="addressLabel" destination="Mf8-iZ-kWM" id="kTn-Zo-G59"/>
+                        <outlet property="goButton" destination="Wlt-W9-P1U" id="ZIm-nb-bKs"/>
                         <outlet property="mapView" destination="8mS-ic-HjW" id="Fte-J3-Fmf"/>
                     </connections>
                 </viewController>
