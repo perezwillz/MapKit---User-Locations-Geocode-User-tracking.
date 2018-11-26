@@ -82,6 +82,8 @@ class ViewController: UIViewController {
         }
         let request = createDirectionsRequest(from: location)
         let directions = MKDirections(request: request)
+        resetMapView(withNew: directions)
+        
         
         directions.calculate {  [unowned self] (response, error) in
             
@@ -106,9 +108,17 @@ class ViewController: UIViewController {
         request.source = MKMapItem(placemark: startingLocation)
         request.destination = MKMapItem(placemark: destination)
         request.transportType = .automobile
-        request.requestsAlternateRoutes = true
+      //  request.requestsAlternateRoutes = true
         
         return request
+    }
+    
+    func resetMapView(withNew directions: MKDirections){
+        mapView.removeOverlays(mapView.overlays)
+        directionsArray.append(directions)
+        let  _ = directionsArray.map { $0.cancel()}
+       // directionsArray.removeAll()
+        mapView.reloadInputViews()
     }
     
     @IBAction func goButtonTapped(_ sender : UIButton){
@@ -120,7 +130,7 @@ class ViewController: UIViewController {
     let defaultMeters = 10000.0
     @IBOutlet weak var addressLabel: UILabel!
     var previousLocation : CLLocation?
-    
+    var directionsArray : [MKDirections] = []
 }
 
 
@@ -142,8 +152,10 @@ extension  ViewController : MKMapViewDelegate {
         let geoCoder = CLGeocoder()
         
         if let previosLocation = previousLocation {
-            guard center.distance(from: previosLocation) > 50 else {return}
+            guard center.distance(from: previosLocation) > 30 else {return}
             previousLocation = center
+            
+            geoCoder.cancelGeocode()
             
             geoCoder.reverseGeocodeLocation(center) {  [weak self] (placemarks, error) in
                 guard let self = self else {return}
